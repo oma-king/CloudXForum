@@ -1,0 +1,15 @@
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\bin\Debug\net6.0\StarForum.Infrastructure.deps.json
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\bin\Debug\net6.0\StarForum.Infrastructure.runtimeconfig.json
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\bin\Debug\net6.0\StarForum.Infrastructure.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\bin\Debug\net6.0\StarForum.Infrastructure.pdb
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.csproj.AssemblyReference.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.AssemblyInfoInputs.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.AssemblyInfo.cs
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.csproj.CoreCompileInputs.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.sourcelink.json
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\refint\StarForum.Infrastructure.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.pdb
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\StarForum.Infrastructure.genruntimeconfig.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\StarForum\StarForum.Infrastructure\obj\Debug\net6.0\ref\StarForum.Infrastructure.dll
