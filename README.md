@@ -1,4 +1,5 @@
 # CloudXForum
+CloudX - Elevating Ideas Together!
 
 ## Features
 
@@ -41,8 +42,3 @@ Update-Database
 ```
 dotnet ef database update
 ```
-=======
-# CloudXForum
- 
-CloudX - Elevating Ideas Together!
->>>>>>> 04cee1166bf734269950f112c79b034201a25ca5
