@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # CloudXForum
 
 ## Features
@@ -31,9 +30,9 @@
 - Requires **.NET 6** version or higher
 - Requires **MS SQL Server**
 
-In the file **```/Star Forum.WebAPI/appsettings.json```** specify the server and database in the *DefaultConnection* string
+In the file **```/CloudXForum.WebAPI/appsettings.json```** specify the server and database in the *DefaultConnection* string
 
-Go to the folder **```/ Star Forum.Infrastructure```** and [creating a database](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations ) based on migrations depending on the IDE:
+Go to the folder **```/CloudXForum.Infrastructure```** and [creating a database](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations ) based on migrations depending on the IDE:
 - Visual Studio:
 ```
 Update-Database
