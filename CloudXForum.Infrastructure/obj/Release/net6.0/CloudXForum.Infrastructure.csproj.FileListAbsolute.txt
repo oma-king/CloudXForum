@@ -1,0 +1,15 @@
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\bin\Release\net6.0\CloudXForum.Infrastructure.deps.json
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\bin\Release\net6.0\CloudXForum.Infrastructure.runtimeconfig.json
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\bin\Release\net6.0\CloudXForum.Infrastructure.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\bin\Release\net6.0\CloudXForum.Infrastructure.pdb
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.csproj.AssemblyReference.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.AssemblyInfoInputs.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.AssemblyInfo.cs
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.csproj.CoreCompileInputs.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.sourcelink.json
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\refint\CloudXForum.Infrastructure.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.pdb
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\CloudXForum.Infrastructure.genruntimeconfig.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Infrastructure\obj\Release\net6.0\ref\CloudXForum.Infrastructure.dll
