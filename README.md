@@ -33,7 +33,7 @@ CloudX - Elevating Ideas Together!
 
 In the file **```/CloudXForum.WebAPI/appsettings.json```** specify the server and database in the *DefaultConnection* string
 
-Go to the folder **```/CloudXForum.Infrastructure```** and [creating a database](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations ) based on migrations depending on the IDE:
+Go to the folder **```/CloudXForum.DataAccess```** and [creating a database](https://docs.microsoft.com/en-us/ef/core/managing-schemas/migrations ) based on migrations depending on the IDE:
 - Visual Studio:
 ```
 Update-Database

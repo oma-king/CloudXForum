@@ -1,0 +1,16 @@
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\bin\Release\net6.0\CloudXForum.Services.deps.json
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\bin\Release\net6.0\CloudXForum.Services.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\bin\Release\net6.0\CloudXForum.Services.pdb
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\bin\Release\net6.0\CloudXForum.DataAccess.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\bin\Release\net6.0\CloudXForum.DataAccess.pdb
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.csproj.AssemblyReference.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.GeneratedMSBuildEditorConfig.editorconfig
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.AssemblyInfoInputs.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.AssemblyInfo.cs
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.csproj.CoreCompileInputs.cache
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.sourcelink.json
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.csproj.CopyComplete
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\refint\CloudXForum.Services.dll
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\CloudXForum.Services.pdb
+D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.Services\obj\Release\net6.0\ref\CloudXForum.Services.dll
