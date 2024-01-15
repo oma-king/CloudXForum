@@ -40,7 +40,7 @@ public class ForumController : Controller
                 NumberOfUsers = (await _forumService.GetActiveUsers(forum.Id)).Count(),
                 ImageUrl = forum.ImageUrl,
                 HasRecentPosts = await _forumService.HasRecentPost(forum.Id)
-            }).Select(r => r.Result);
+            }).Select(r => r.Result).OrderByDescending(forum => forum.Name); ;
 
         var model = new ForumIndexModel
         {
@@ -89,7 +89,8 @@ public class ForumController : Controller
         {
             Id = id,
             Description = forum.Description,
-            Title = forum.Title
+            Title = forum.Title,
+            ImageUrl = forum.ImageUrl
         };
         return View(model);
     }
@@ -146,6 +147,20 @@ public class ForumController : Controller
         };
 
         return View(model);
+    }
+    [Authorize]
+    public async Task<IActionResult> DeleteForum(int id)
+    {
+        var forum = await _forumService.GetById(id);
+        await _forumService.Delete(id);
+        return RedirectToAction("Index", "Forum");
+    }
+    [Authorize]
+    public async Task<IActionResult> Delete(int id)
+    {
+        var topic = await _postService.GetById(id);
+        await _postService.Delete(id);
+        return RedirectToAction("Topic", new { id = topic.Forum.Id });
     }
 
     [HttpPost]

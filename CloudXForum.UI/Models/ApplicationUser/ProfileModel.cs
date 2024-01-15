@@ -12,4 +12,5 @@ public class ProfileModel
     public IFormFile ImageUpload { get; set; }
     public bool IsAdmin { get; set; }
     public bool IsActive { get; set; }
+    public string UserLevel { get; set; }
 }

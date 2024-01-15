@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Q6OxcD79wkGXySm61ObbgZym5Jkm0Ke4JJwzWvaf9Nw=",
+  "Hash": "Sfn/AxpHsD4FEAkSZCH8o35D9tIyGfcRnJ9KPDP1KYk=",
   "Source": "CloudXForum.UI",
   "BasePath": "_content/CloudXForum.UI",
   "Mode": "Default",
@@ -1271,6 +1271,25 @@
       "OriginalItemSpec": "wwwroot\\images\\forum-images\\4687ae6a-76d7-4162-ac39-69fc7573491a.jpeg"
     },
     {
+      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\forum-images\\e1ca4cde-2f96-4132-9890-17efb9cc2228.png",
+      "SourceId": "CloudXForum.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
+      "BasePath": "_content/CloudXForum.UI",
+      "RelativePath": "images/forum-images/e1ca4cde-2f96-4132-9890-17efb9cc2228.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\forum-images\\e1ca4cde-2f96-4132-9890-17efb9cc2228.png"
+    },
+    {
       "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\forum-images\\e84671f5-ec17-447a-a9c8-257d3964e0e1.png",
       "SourceId": "CloudXForum.UI",
       "SourceType": "Discovered",
@@ -1288,6 +1307,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\forum-images\\e84671f5-ec17-447a-a9c8-257d3964e0e1.png"
+    },
+    {
+      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\1da4d18c-ba44-4e7b-aa2e-72f5e5c14ea8.jpeg",
+      "SourceId": "CloudXForum.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
+      "BasePath": "_content/CloudXForum.UI",
+      "RelativePath": "images/profile-images/1da4d18c-ba44-4e7b-aa2e-72f5e5c14ea8.jpeg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profile-images\\1da4d18c-ba44-4e7b-aa2e-72f5e5c14ea8.jpeg"
     },
     {
       "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\3bfdce14-3cb7-4d5c-b058-f7589fa1d7f9.jpeg",
@@ -1328,12 +1366,12 @@
       "OriginalItemSpec": "wwwroot\\images\\profile-images\\44c7d964-9710-47b8-b178-13f84812f0e7.jpg"
     },
     {
-      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\admin.png",
+      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\9c48e9b3-2c65-4c61-adad-2864c5ae2fcb.png",
       "SourceId": "CloudXForum.UI",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
       "BasePath": "_content/CloudXForum.UI",
-      "RelativePath": "images/profile-images/admin.png",
+      "RelativePath": "images/profile-images/9c48e9b3-2c65-4c61-adad-2864c5ae2fcb.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1344,7 +1382,26 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\profile-images\\admin.png"
+      "OriginalItemSpec": "wwwroot\\images\\profile-images\\9c48e9b3-2c65-4c61-adad-2864c5ae2fcb.png"
+    },
+    {
+      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\bbafe68c-427b-49c9-8f09-5bb7d55f7356.jpg",
+      "SourceId": "CloudXForum.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
+      "BasePath": "_content/CloudXForum.UI",
+      "RelativePath": "images/profile-images/bbafe68c-427b-49c9-8f09-5bb7d55f7356.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\profile-images\\bbafe68c-427b-49c9-8f09-5bb7d55f7356.jpg"
     },
     {
       "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\f80863a8-19a0-4f8f-b29f-a5f87da0304f.jpg",
@@ -1385,25 +1442,6 @@
       "OriginalItemSpec": "wwwroot\\images\\theme\\bg-01.jpg"
     },
     {
-      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\bg-01-old.jpg",
-      "SourceId": "CloudXForum.UI",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
-      "BasePath": "_content/CloudXForum.UI",
-      "RelativePath": "images/theme/bg-01-old.jpg",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\theme\\bg-01-old.jpg"
-    },
-    {
       "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\cloudx.png",
       "SourceId": "CloudXForum.UI",
       "SourceType": "Discovered",
@@ -1423,12 +1461,12 @@
       "OriginalItemSpec": "wwwroot\\images\\theme\\cloudx.png"
     },
     {
-      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\default.png",
+      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\default.jpg",
       "SourceId": "CloudXForum.UI",
       "SourceType": "Discovered",
       "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
       "BasePath": "_content/CloudXForum.UI",
-      "RelativePath": "images/theme/default.png",
+      "RelativePath": "images/theme/default.jpg",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -1439,7 +1477,7 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\theme\\default.png"
+      "OriginalItemSpec": "wwwroot\\images\\theme\\default.jpg"
     },
     {
       "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\front-splash.jpg",
@@ -1459,44 +1497,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\theme\\front-splash.jpg"
-    },
-    {
-      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\sforum-logo.gif",
-      "SourceId": "CloudXForum.UI",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
-      "BasePath": "_content/CloudXForum.UI",
-      "RelativePath": "images/theme/sforum-logo.gif",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\theme\\sforum-logo.gif"
-    },
-    {
-      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\sforum-logo.png",
-      "SourceId": "CloudXForum.UI",
-      "SourceType": "Discovered",
-      "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
-      "BasePath": "_content/CloudXForum.UI",
-      "RelativePath": "images/theme/sforum-logo.png",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "AssetMergeBehavior": "PreferTarget",
-      "AssetMergeSource": "",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot\\images\\theme\\sforum-logo.png"
     },
     {
       "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\js\\site.js",

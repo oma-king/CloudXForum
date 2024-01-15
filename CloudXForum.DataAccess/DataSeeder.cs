@@ -21,10 +21,10 @@ public class DataSeeder
         var userStore = new UserStore<ApplicationUser>(_context);
         var user = new ApplicationUser
         {
-            UserName = "ForumAdmin",
-            NormalizedUserName = "FORUMADMIN",
+            UserName = "CloudXAdmin",
+            NormalizedUserName = "CLOUDXADMIN",
             Email = "admin@CloudXForum.com",
-            NormalizedEmail = "ADMIN@CloudXForum.COM",
+            NormalizedEmail = "ADMIN@CLOUDXFORUM.COM",
             EmailConfirmed = true,
             UserDescription = "ADMIN",
             IsAdmin = true,

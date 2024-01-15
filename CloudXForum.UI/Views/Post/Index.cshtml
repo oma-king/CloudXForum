@@ -3,6 +3,7 @@
     ViewData["Title"] = Model.Title;
 }
 
+
 <div class="container body-content">
     <div class="row postHeader">
         <div class="postHeading">
@@ -16,13 +17,18 @@
     </div>
     <div class="row" id="postIndexContent">
         <div class="col-md-3 postAuthorContainer">
-            <div class="postAuthorImage" style="background-image: url(@Model.AuthorImageUrl)"></div>
+            @* <div class="postAuthorImage" style="background-image: url(@Model.AuthorImageUrl)"></div> *@
+            <div class="postAuthorImage" @if (!string.IsNullOrWhiteSpace(Model.AuthorImageUrl))
+            {
+                <text>style="background-image: url('@Model.AuthorImageUrl')"</text>
+            }></div>
+
             <a asp-controller="Profile" asp-action="Detail" asp-route-id="@Model.AuthorId">
                 <strong>@Model.AuthorName</strong>
             </a> (<span class="postAuthorRating">@Model.AuthorRating</span>) <br/>
             @if (Model.IsAuthorAdmin)
             {
-                <span class="isAdmin smaller">Admin</span>
+                <span class="isAdmin smaller">Moderator</span>
                 <br/>
             }
             <span class="postDate">@Model.Created</span>
@@ -49,6 +55,14 @@
             <a asp-controller="Reply" asp-action="Create" asp-route-id="@Model.Id" class="btn btn-newReply">Answer</a>
         </div>
     }
+    else if (!User.Identity.IsAuthenticated)
+    {
+        <br />
+        <br />
+        <div class="alert alert-danger alert-dismissible fade show text-center" role="alert">
+            <span>You must be a <a asp-area="Identity" asp-page="/Account/Register">registered</a> user, to answer this topic.</span>
+        </div>
+    }
     else
     {
         <div class="row archiveTextBlock">
@@ -58,19 +72,45 @@
         </div>
     }
     <div class="row" id="replyDivider"></div>
+    @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+    {
+        <div id="myAlert" class="alert alert-@TempData["AlertType"] alert-dismissible fade show text-center" role="alert">
+            @TempData["AlertMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <script>
+            // Wait for the page to load
+            document.addEventListener('DOMContentLoaded', function () {
+                // Close the alert after 5 seconds
+                setTimeout(function () {
+                    var myAlert = document.getElementById('myAlert');
+                    if (myAlert) {
+                        myAlert.classList.add('fade'); // Add the 'fade' class for a smooth transition
+                        myAlert.style.display = 'none'; // Hide the alert
+                    }
+                }, 5000);
+            });
+        </script>
+    }
+    <div class="row" id="replyDivider"></div>
     @if (Model.Replies.Any())
     {
         foreach (var reply in Model.Replies)
         {
             <div class="row replyContent">
                 <div class="col-md-3 replyAuthorContainer">
-                    <div class="postAuthorImage" style="background-image: url(@reply.AuthorImageUrl)"></div>
+                    @* <div class="postAuthorImage" style="background-image: url(@reply.AuthorImageUrl)"></div> *@
+                    <div class="postAuthorImage" @if (!string.IsNullOrWhiteSpace(reply.AuthorImageUrl))
+                    {
+                        <text>style="background-image: url('@reply.AuthorImageUrl')"</text>
+                    }></div>
                     <a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.AuthorId">
                         <strong>@reply.AuthorName</strong>
                     </a> (<span class="postAuthorRating">@reply.AuthorRating</span>) <br/>
                     @if (reply.IsAuthorAdmin)
                     {
-                        <div class="isAdmin profileLabel smaller">Admin</div>
+                        <div class="isAdmin profileLabel smaller">Moderator</div>
                         <br/>
                     }
                     <span class="postDate">@reply.Created</span>

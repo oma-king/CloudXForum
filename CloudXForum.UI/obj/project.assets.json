@@ -3776,20 +3776,6 @@
           }
         }
       },
-      "CloudXForum.Services/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "dependencies": {
-          "CloudXForum.DataAccess": "1.0.0",
-          "WindowsAzure.Storage": "9.3.3"
-        },
-        "compile": {
-          "bin/placeholder/CloudXForum.Services.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/CloudXForum.Services.dll": {}
-        }
-      },
       "CloudXForum.DataAccess/1.0.0": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
@@ -3805,6 +3791,20 @@
         },
         "runtime": {
           "bin/placeholder/CloudXForum.DataAccess.dll": {}
+        }
+      },
+      "CloudXForum.Services/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "CloudXForum.DataAccess": "1.0.0",
+          "WindowsAzure.Storage": "9.3.3"
+        },
+        "compile": {
+          "bin/placeholder/CloudXForum.Services.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/CloudXForum.Services.dll": {}
         }
       }
     }
@@ -10660,21 +10660,21 @@
         "windowsazure.storage.nuspec"
       ]
     },
-    "CloudXForum.Services/1.0.0": {
-      "type": "project",
-      "path": "../CloudXForum.Services/CloudXForum.Services.csproj",
-      "msbuildProject": "../CloudXForum.Services/CloudXForum.Services.csproj"
-    },
     "CloudXForum.DataAccess/1.0.0": {
       "type": "project",
       "path": "../CloudXForum.DataAccess/CloudXForum.DataAccess.csproj",
       "msbuildProject": "../CloudXForum.DataAccess/CloudXForum.DataAccess.csproj"
+    },
+    "CloudXForum.Services/1.0.0": {
+      "type": "project",
+      "path": "../CloudXForum.Services/CloudXForum.Services.csproj",
+      "msbuildProject": "../CloudXForum.Services/CloudXForum.Services.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
-      "CloudXForum.Services >= 1.0.0",
       "CloudXForum.DataAccess >= 1.0.0",
+      "CloudXForum.Services >= 1.0.0",
       "Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore >= 6.0.7",
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore >= 6.0.7",
       "Microsoft.AspNetCore.Identity.UI >= 6.0.7",
@@ -10710,11 +10710,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.Services\\CloudXForum.Services.csproj": {
-              "projectPath": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.Services\\CloudXForum.Services.csproj"
-            },
             "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.DataAccess\\CloudXForum.DataAccess.csproj": {
               "projectPath": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.DataAccess\\CloudXForum.DataAccess.csproj"
+            },
+            "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.Services\\CloudXForum.Services.csproj": {
+              "projectPath": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.Services\\CloudXForum.Services.csproj"
             }
           }
         }

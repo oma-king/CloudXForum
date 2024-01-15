@@ -18,6 +18,10 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = D:\_School\OneDrive - POLYTECH INTL\_IRM-2-2-S1\C# .NET\Projet\CloudXForum\CloudXForum.UI
 build_property._RazorSourceGeneratorDebug = 
 
+[D:/_School/OneDrive - POLYTECH INTL/_IRM-2-2-S1/C\# .NET/Projet/CloudXForum/CloudXForum.UI/Areas/Identity/Pages/Account/Lockout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2Nrb3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/_School/OneDrive - POLYTECH INTL/_IRM-2-2-S1/C\# .NET/Projet/CloudXForum/CloudXForum.UI/Areas/Identity/Pages/Account/Login.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 

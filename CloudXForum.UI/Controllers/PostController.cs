@@ -5,6 +5,7 @@ using CloudXForum.DataAccess.Entities;
 using CloudXForum.DataAccess.Services;
 using CloudXForum.UI.Models.Post;
 using CloudXForum.UI.Models.Reply;
+using Microsoft.Extensions.Hosting;
 
 namespace CloudXForum.UI.Controllers;
 
@@ -79,6 +80,7 @@ public class PostController : Controller
         };
         return View(model);
     }
+    
 
     [HttpPost]
     [Authorize]
@@ -155,6 +157,6 @@ public class PostController : Controller
             Created = reply.Created,
             ReplyContent = reply.Content,
             IsAuthorAdmin = IsAuthorAdmin(reply.User)
-        });
+        }).OrderByDescending(replyModel => replyModel.Created);
     }
 }

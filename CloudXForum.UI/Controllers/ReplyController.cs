@@ -85,11 +85,29 @@ public class ReplyController : Controller
     [Authorize]
     public async Task<IActionResult> Delete(int id)
     {
-        await _replyService.Delete(id);
+        //await _replyService.Delete(id);
+        //var reply = await _replyService.GetById(id);
+        //return reply == null
+        //    ? RedirectToAction("Error", "Home")
+        //    : RedirectToAction("Index", "Post", new { id = reply.Post.Id });
+
         var reply = await _replyService.GetById(id);
-        return reply == null
-            ? RedirectToAction("Error", "Home")
-            : RedirectToAction("Index", "Post", new {id = reply.Post.Id});
+
+        if (reply != null)
+        {
+            await _replyService.Delete(id);
+            TempData["AlertType"] = "success";
+            TempData["AlertMessage"] = "Message was deleted successfully.";
+            return RedirectToAction("Index", "Post", new { id = reply.Post.Id });
+        }
+        else
+        {
+            TempData["AlertType"] = "danger";
+            TempData["AlertMessage"] = "Failed to delete the message.";
+            return RedirectToAction("Index", "Home");
+        }
+
+        
     }
 
     private async Task<PostReply> BuildReply(PostReplyModel model, ApplicationUser user)

@@ -6,6 +6,7 @@ using Microsoft.WindowsAzure.Storage.Blob;
 using CloudXForum.DataAccess.Entities;
 using CloudXForum.DataAccess.Services;
 using CloudXForum.UI.Models.ApplicationUser;
+using CloudXForum.Services;
 
 namespace CloudXForum.UI.Controllers;
 
@@ -43,7 +44,10 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        MemberSince = u.MemberSince
+                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        MemberSince = u.MemberSince,
+                        IsAdmin = u.IsAdmin,
+                        IsActive = u.IsActive                       
                     });
                 oldTypeQuery = "0";
                 break;
@@ -56,7 +60,10 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        MemberSince = u.MemberSince
+                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        MemberSince = u.MemberSince,
+                        IsAdmin = u.IsAdmin,
+                        IsActive = u.IsActive
                     });
                 oldTypeQuery = typeQuery;
                 break;
@@ -69,7 +76,10 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        MemberSince = u.MemberSince
+                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        MemberSince = u.MemberSince,
+                        IsAdmin = u.IsAdmin,
+                        IsActive = u.IsActive
                     });
                 oldTypeQuery = "0";
                 break;
@@ -82,7 +92,10 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        MemberSince = u.MemberSince
+                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        MemberSince = u.MemberSince,
+                        IsAdmin = u.IsAdmin,
+                        IsActive = u.IsActive
                     });
                 oldTypeQuery = typeQuery;
                 break;
@@ -95,7 +108,10 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        MemberSince = u.MemberSince
+                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        MemberSince = u.MemberSince,
+                        IsAdmin = u.IsAdmin,
+                        IsActive = u.IsActive
                     });
                 oldTypeQuery = "0";
                 break;
@@ -108,7 +124,10 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        MemberSince = u.MemberSince
+                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        MemberSince = u.MemberSince,
+                        IsAdmin = u.IsAdmin,
+                        IsActive = u.IsActive
                     });
                 oldTypeQuery = typeQuery;
                 break;
@@ -124,7 +143,10 @@ public class ProfileController : Controller
                             Username = u.UserName,
                             ProfileImageUrl = u.ProfileImageUrl,
                             UserRating = u.Rating.ToString(),
-                            MemberSince = u.MemberSince
+                            UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                            MemberSince = u.MemberSince,
+                            IsAdmin = u.IsAdmin,
+                            IsActive = u.IsActive
                         });
                     oldTypeQuery = "0";
                 }
@@ -138,7 +160,10 @@ public class ProfileController : Controller
                             Username = u.UserName,
                             ProfileImageUrl = u.ProfileImageUrl,
                             UserRating = u.Rating.ToString(),
-                            MemberSince = u.MemberSince
+                            UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                            MemberSince = u.MemberSince,
+                            IsAdmin = u.IsAdmin,
+                            IsActive = u.IsActive
                         });
                     oldTypeQuery = typeQuery;
                 }
@@ -166,6 +191,7 @@ public class ProfileController : Controller
             UserId = user.Id,
             Username = user.UserName,
             UserRating = user.Rating.ToString(),
+            UserLevel = ApplicationUserService.GetLevelFromRating(user.Rating),
             Email = user.Email,
             ProfileImageUrl = user.ProfileImageUrl,
             MemberSince = user.MemberSince,
@@ -173,6 +199,41 @@ public class ProfileController : Controller
             IsAdmin = userRoles.Contains("Admin")
         };
         return View(model);
+    }
+
+    public async Task<IActionResult> LockUser(string id)
+    {
+        var user = await _userService.GetById(id);
+        if (user != null)
+        {
+            await _userService.LockUser(user);
+            TempData["AlertType"] = "success";
+            TempData["AlertMessage"] = "User " + user.UserName + " is locked successfully.";
+            return RedirectToAction("Index", "Profile");
+        }
+        else
+        {
+            TempData["AlertType"] = "danger";
+            TempData["AlertMessage"] = "Failed to lock the user " + user.UserName + ".";
+            return RedirectToAction("Index", "Home");
+        }
+    }
+    public async Task<IActionResult> UnlockUser(string id)
+    {
+        var user = await _userService.GetById(id);
+        if (user != null)
+        {
+            await _userService.UnlockUser(user);
+            TempData["AlertType"] = "success";
+            TempData["AlertMessage"] = "User " + user.UserName + " is unlocked successfully.";
+            return RedirectToAction("Index", "Profile");
+        }
+        else
+        {
+            TempData["AlertType"] = "danger";
+            TempData["AlertMessage"] = "Failed to unlock the user " + user.UserName + ".";
+            return RedirectToAction("Index", "Home");
+        }
     }
 
     [Authorize]
@@ -193,6 +254,8 @@ public class ProfileController : Controller
         };
         return View(model);
     }
+
+    
 
     [HttpPost]
     public async Task<IActionResult> EditProfile(ProfileModel model)
@@ -246,4 +309,5 @@ public class ProfileController : Controller
 
         return "/images/profile-images/" + uniqueFileName;
     }
+   
 }

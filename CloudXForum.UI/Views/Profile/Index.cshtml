@@ -8,15 +8,36 @@
         <div class="sectionHeading">Users</div>
     </div>
     <div class="row" id="forumIndexContent">
+        @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+        {
+            <div id="myAlert" class="alert alert-@TempData["AlertType"] alert-dismissible fade show text-center" role="alert">
+                @TempData["AlertMessage"]
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+
+            <script>
+                // Wait for the page to load
+                document.addEventListener('DOMContentLoaded', function () {
+                    // Close the alert after 5 seconds
+                    setTimeout(function () {
+                        var myAlert = document.getElementById('myAlert');
+                        if (myAlert) {
+                            myAlert.classList.add('fade'); // Add the 'fade' class for a smooth transition
+                            myAlert.style.display = 'none'; // Hide the alert
+                        }
+                    }, 5000);
+                });
+            </script>
+        }
         <table class="table table-hover" id="userIndexTable">
             <thead>
             <tr>
                 <th>
-                    Изображение
+                        Profile Photo
                 </th>
                 <th>
                     <a asp-controller="Profile" asp-action="Index" asp-route-typeQuery="userName" asp-route-oldTypeQuery="@Model.OldTypeQuery" class="linkDecorationNone">
-                        Имя
+                        Username
                         @if (Model.TypeQuery == "userName" && Model.OldTypeQuery == Model.TypeQuery)
                         {
                             <i class="material-icons">arrow_drop_down</i>
@@ -54,7 +75,7 @@
                     </a>
                 </th>
                 <th>
-                    <a asp-controller="Profile" asp-action="Index" asp-route-typeQuery="" asp-route-oldTypeQuery="@Model.OldTypeQuery" class="linkDecorationNone">
+                        <a asp-controller="Profile" asp-action="Index" asp-route-typeQuery="rating" asp-route-oldTypeQuery="@Model.OldTypeQuery" class="linkDecorationNone">
                             Rating
                         @if (Model.TypeQuery == "rating" && Model.OldTypeQuery == Model.TypeQuery)
                         {
@@ -66,6 +87,22 @@
                         }
                     </a>
                 </th>
+                    <th>
+                        <a asp-controller="Profile" asp-action="Index" asp-route-typeQuery="level" asp-route-oldTypeQuery="@Model.OldTypeQuery" class="linkDecorationNone">
+                            Level
+                            @if (Model.TypeQuery == "level" && Model.OldTypeQuery == Model.TypeQuery)
+                            {
+                                <i class="material-icons">arrow_drop_down</i>
+                            }
+                            else if (Model.TypeQuery == "level")
+                            {
+                                <i class="material-icons">arrow_drop_up</i>
+                            }
+                        </a>
+                    </th>
+                    <th>
+                        Lock / Unlock
+                    </th>
             </tr>
             </thead>
             <tbody>
@@ -73,12 +110,21 @@
             {
                 <tr class="userRow">
                     <td>
-                        <div class="userProfilePic" style="background-image: url(@profile.ProfileImageUrl)"></div>
+                        @* <div class="userProfilePic" style="background-image: url(@profile.ProfileImageUrl)"></div> *@
+                            <div class="userProfilePic" @if (!string.IsNullOrWhiteSpace(profile.ProfileImageUrl))
+                            {
+                                <text>style="background-image: url('@profile.ProfileImageUrl')"</text>
+                            }></div>
                     </td>
                     <td>
                         <a asp-controller="Profile" asp-action="Detail" asp-route-id="@profile.UserId">
                             @profile.Username
                         </a>
+                        <br />
+                            @if (profile.IsAdmin)
+                            {
+                                <span class="isAdmin">Moderator</span>
+                            }
                     </td>
                     <td>
                         @profile.Email
@@ -89,6 +135,23 @@
                     <td>
                         @profile.UserRating
                     </td>
+                    <td>
+                        @profile.UserLevel
+                    </td>
+                        <td>
+
+                            @if (!profile.IsAdmin)
+                            {
+                                <div class="btn-block">
+                                    <a asp-controller="Profile" asp-action="@((profile.IsActive) ? "LockUser" : "UnlockUser")" asp-route-id="@profile.UserId">
+                                        
+                                        <span class="material-icons @(profile.IsActive ? "blockButtonRed" : "unblockButtonGreen")">
+                                            @(profile.IsActive ? "lock_outline" : "lock_open")
+                                        </span>
+                                    </a>
+                                </div>
+                            }
+                        </td>
                 </tr>
             }
             </tbody>

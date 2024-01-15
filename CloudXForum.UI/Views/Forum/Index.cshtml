@@ -66,6 +66,18 @@
                             @forum.Description
                         </div>
                     </td>
+                        <td class="tdDisplayNone">
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <div class="btn-delete">
+                                    <a asp-controller="Forum" asp-action="DeleteForum" asp-route-id="@forum.Id">
+                                        <span class="material-icons deleteButtonRed">
+                                            delete
+                                        </span>
+                                    </a>
+                                </div>
+                            }
+                        </td>
                 </tr>
             }
             </tbody>

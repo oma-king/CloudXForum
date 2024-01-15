@@ -21,8 +21,16 @@
       "PackagePath": "staticwebassets\\images\\forum-images\\4687ae6a-76d7-4162-ac39-69fc7573491a.jpeg"
     },
     {
+      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\forum-images\\e1ca4cde-2f96-4132-9890-17efb9cc2228.png",
+      "PackagePath": "staticwebassets\\images\\forum-images\\e1ca4cde-2f96-4132-9890-17efb9cc2228.png"
+    },
+    {
       "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\forum-images\\e84671f5-ec17-447a-a9c8-257d3964e0e1.png",
       "PackagePath": "staticwebassets\\images\\forum-images\\e84671f5-ec17-447a-a9c8-257d3964e0e1.png"
+    },
+    {
+      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\1da4d18c-ba44-4e7b-aa2e-72f5e5c14ea8.jpeg",
+      "PackagePath": "staticwebassets\\images\\profile-images\\1da4d18c-ba44-4e7b-aa2e-72f5e5c14ea8.jpeg"
     },
     {
       "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\3bfdce14-3cb7-4d5c-b058-f7589fa1d7f9.jpeg",
@@ -33,16 +41,16 @@
       "PackagePath": "staticwebassets\\images\\profile-images\\44c7d964-9710-47b8-b178-13f84812f0e7.jpg"
     },
     {
-      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\admin.png",
-      "PackagePath": "staticwebassets\\images\\profile-images\\admin.png"
+      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\9c48e9b3-2c65-4c61-adad-2864c5ae2fcb.png",
+      "PackagePath": "staticwebassets\\images\\profile-images\\9c48e9b3-2c65-4c61-adad-2864c5ae2fcb.png"
+    },
+    {
+      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\bbafe68c-427b-49c9-8f09-5bb7d55f7356.jpg",
+      "PackagePath": "staticwebassets\\images\\profile-images\\bbafe68c-427b-49c9-8f09-5bb7d55f7356.jpg"
     },
     {
       "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\profile-images\\f80863a8-19a0-4f8f-b29f-a5f87da0304f.jpg",
       "PackagePath": "staticwebassets\\images\\profile-images\\f80863a8-19a0-4f8f-b29f-a5f87da0304f.jpg"
-    },
-    {
-      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\bg-01-old.jpg",
-      "PackagePath": "staticwebassets\\images\\theme\\bg-01-old.jpg"
     },
     {
       "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\bg-01.jpg",
@@ -53,20 +61,12 @@
       "PackagePath": "staticwebassets\\images\\theme\\cloudx.png"
     },
     {
-      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\default.png",
-      "PackagePath": "staticwebassets\\images\\theme\\default.png"
+      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\default.jpg",
+      "PackagePath": "staticwebassets\\images\\theme\\default.jpg"
     },
     {
       "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\front-splash.jpg",
       "PackagePath": "staticwebassets\\images\\theme\\front-splash.jpg"
-    },
-    {
-      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\sforum-logo.gif",
-      "PackagePath": "staticwebassets\\images\\theme\\sforum-logo.gif"
-    },
-    {
-      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\images\\theme\\sforum-logo.png",
-      "PackagePath": "staticwebassets\\images\\theme\\sforum-logo.png"
     },
     {
       "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\js\\site.js",

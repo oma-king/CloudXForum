@@ -28,7 +28,7 @@ public class PostReplyService : IPostReply
     {
         var reply = await GetById(id);
         if (reply == null) return;
-        if (string.IsNullOrEmpty(content)) reply.Content = content;
+        if (!string.IsNullOrEmpty(content)) reply.Content = content;
         _context.Update(reply);
         await _unitOfWork.Commit();
     }
@@ -36,9 +36,8 @@ public class PostReplyService : IPostReply
     public async Task<PostReply?> GetById(int id)
     {
         return await _context.PostReplies
+            .Include(post => post.User)
             .Include(r => r.Post)
-            .ThenInclude(post => post.Forum)
-            .Include(r => r.Post)
-            .ThenInclude(post => post.User).FirstOrDefaultAsync(r => r.Id == id);
+            .ThenInclude(post => post.Forum).FirstOrDefaultAsync(r => r.Id == id);
     }
 }

@@ -39,6 +39,22 @@ public class ApplicationUserService : IApplicationUser
         await _unitOfWork.Commit();
     }
 
+    public async Task LockUser(ApplicationUser user)
+    {
+        user.IsActive = false;
+        user.LockoutEnd = DateTimeOffset.Now.AddDays(5);
+        _context.Update(user);
+        await _unitOfWork.Commit();
+    }
+
+    public async Task UnlockUser(ApplicationUser user)
+    {
+        user.IsActive = true;
+        user.LockoutEnd = null;
+        _context.Update(user);
+        await _unitOfWork.Commit();
+    }
+
     public IEnumerable<ApplicationUser> GetAll()
     {
         return _context.ApplicationUsers;
@@ -63,5 +79,29 @@ public class ApplicationUserService : IApplicationUser
         if (type == typeof(Post)) inc = 1;
         if (type == typeof(PostReply)) inc = 3;
         return userRating + inc;
+    }
+
+    public static string GetLevelFromRating(int userRating)
+    {
+        if (userRating < 50)
+        {
+            return "Newbie";
+        }
+        else if (userRating < 200)
+        {
+            return "Contributor";
+        }
+        else if (userRating < 500)
+        {
+            return "Regular";
+        }
+        else if (userRating < 1000)
+        {
+            return "Expert";
+        }
+        else
+        {
+            return "Master";
+        }
     }
 }

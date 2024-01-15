@@ -66,8 +66,8 @@ public class LoginModel : PageModel
                 return RedirectToPage("./LoginWith2fa", new {ReturnUrl = returnUrl, Input.RememberMe});
             if (result.IsLockedOut)
             {
-                _logger.LogWarning("User account locked out.");
-                return RedirectToPage("./Lockout");
+                ModelState.AddModelError(string.Empty, "Your account is locked. Please contact the forum administrator.");
+                return Page();
             }
 
             ModelState.AddModelError(string.Empty, "Invalid login attempt.");

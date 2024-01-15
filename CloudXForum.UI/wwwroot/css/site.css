@@ -314,7 +314,9 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url(../images/theme/default.png);
+	border-radius: 150px; /* Adjust the value to change the level of rounding */
+    overflow: hidden; /* This ensures that the border-radius is applied properly */
+    background-image: url(../images/theme/default.jpg);
     height: 80px;
     width: 80px;
 }
@@ -479,8 +481,11 @@
 /*User profile*/
 
 .userProfilePic {
-    height: 140px;
-    width: 140px;
+    height: 70px;
+    width: 70px;
+	border-radius: 150px; /* Adjust the value to change the level of rounding */
+    overflow: hidden; /* This ensures that the border-radius is applied properly */
+    background-image: url(../images/theme/default.jpg);
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -595,6 +600,10 @@
     text-align: right;
 }
 
+.btn-block {
+    text-align: center;
+}
+
 .btn-file {
     background: none !important;
     border: 2px solid #007bff !important;
@@ -654,8 +663,17 @@
     margin-top: 20px;
 }
 
-.btn-submitPost:hover {
-    background-color: #007bff !important;
+.btn-Update {
+    background: none !important;
+    border: 2px solid #ff9a4b !important;
+    color: #ff9a4b !important;
+    transition: 0.8s;
+    min-width: 160px;
+    margin-top: 20px;
+}
+
+.btn-Update:hover {
+    background-color: #ff9a4b !important;
     color: #fff !important;
     transition: cubic-bezier(.23, 1.45, .66, .21) 1s;
 }
@@ -671,6 +689,13 @@
     color: #eb4d4b;
 }
 
+.blockButtonRed {
+    color: #e42313;
+}
+
+.unblockButtonGreen {
+    color: #6bc172;
+}
 
 /*Upload*/
 
@@ -696,7 +721,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    background-image: url(../images/theme/default.png);
+    background-image: url(../images/theme/default.jpg);
 }
 
 #userProfileAdmin {
@@ -706,10 +731,12 @@
 
 #userProfileImage {
     display: inline-block;
-    background-image: url(../images/theme/default.png);
+    background-image: url(../images/theme/default.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+	border-radius: 150px; /* Adjust the value to change the level of rounding */
+    overflow: hidden; /* This ensures that the border-radius is applied properly */
     width: 240px;
     height: 240px;
 }
