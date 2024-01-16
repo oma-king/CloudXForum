@@ -10,4 +10,5 @@ public class ApplicationUser : IdentityUser
     public DateTime MemberSince { get; set; }
     public bool IsActive { get; set; }
     public bool IsAdmin { get; set; }
+
 }

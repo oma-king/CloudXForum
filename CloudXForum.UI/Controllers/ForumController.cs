@@ -40,7 +40,7 @@ public class ForumController : Controller
                 NumberOfUsers = (await _forumService.GetActiveUsers(forum.Id)).Count(),
                 ImageUrl = forum.ImageUrl,
                 HasRecentPosts = await _forumService.HasRecentPost(forum.Id)
-            }).Select(r => r.Result).OrderByDescending(forum => forum.Name); ;
+            }).Select(r => r.Result).OrderByDescending(forum => forum.Name);
 
         var model = new ForumIndexModel
         {
@@ -136,7 +136,7 @@ public class ForumController : Controller
             RepliesCount = post.Replies.Count,
             Forum = BuildForumListing(post),
             IsPostArchived = post.IsArchived
-        });
+        }).OrderByDescending(post => DateTime.ParseExact(post.DatePosted, "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture));
 
         var model = new ForumTopicModel
         {

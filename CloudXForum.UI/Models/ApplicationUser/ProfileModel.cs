@@ -1,4 +1,6 @@
-﻿namespace CloudXForum.UI.Models.ApplicationUser;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace CloudXForum.UI.Models.ApplicationUser;
 
 public class ProfileModel
 {
@@ -13,4 +15,13 @@ public class ProfileModel
     public bool IsAdmin { get; set; }
     public bool IsActive { get; set; }
     public string UserLevel { get; set; }
+
+    [DataType(DataType.Password)]
+    [Display(Name = "Current Password")]
+    public string CurrentPassword { get; set; }
+
+    [DataType(DataType.Password)]
+    [Display(Name = "New Password")]
+    public string NewPassword { get; set; }
+
 }

@@ -28,6 +28,27 @@
             </div>
             <div class="row">
                 <div class="editProfileSection">
+                    @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+                    {
+                        <div id="myAlert" class="alert alert-@TempData["AlertType"] alert-dismissible fade show text-center" role="alert">
+                            @TempData["AlertMessage"]
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+
+                        <script>
+                            // Wait for the page to load
+                            document.addEventListener('DOMContentLoaded', function () {
+                                // Close the alert after 5 seconds
+                                setTimeout(function () {
+                                    var myAlert = document.getElementById('myAlert');
+                                    if (myAlert) {
+                                        myAlert.classList.add('fade'); // Add the 'fade' class for a smooth transition
+                                        myAlert.style.display = 'none'; // Hide the alert
+                                    }
+                                }, 5000);
+                            });
+                        </script>
+                    }
                     <form asp-action="EditProfile" method="post" id="editProfileForm" enctype="multipart/form-data">
                         <div asp-validation-summary="All" class="text-danger"> </div>
                         <div id="upload">
@@ -36,19 +57,31 @@
                                 Upload <input asp-for="ImageUpload" typeof="file" accept="image/*" style="display:none"/>
                             </label>
                         </div>
-                        @if (User.IsInRole("Admin"))
+                        @* @if (User.IsInRole("Admin"))
                         {
                             <div class="form-group">
                                 <label asp-for="Username">Username</label>
                                 <input asp-for="Username" class="form-control" required placeholder="Username" value="@Model.Username" maxlength="30" />
                                 <span asp-validation-for="Username" class="text-danger"></span>
                             </div>
-                        }
+                        } *@
                         <div class="form-group">
                             <label asp-for="UserDescription">Status/Description</label>
                             <input asp-for="UserDescription" class="form-control" placeholder="Status" value="@Model.UserDescription" maxlength="100" />
                             <span asp-validation-for="UserDescription" class="text-danger"></span>
                         </div>
+                        <div class="form-group">
+                            <label asp-for="CurrentPassword"></label>
+                            <input asp-for="CurrentPassword" class="form-control" />
+                            <span asp-validation-for="CurrentPassword" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label asp-for="NewPassword"></label>
+                            <input asp-for="NewPassword" class="form-control" />
+                            <span asp-validation-for="NewPassword" class="text-danger"></span>
+                        </div>
+
                         <input asp-for="UserId" type="hidden"/>
                         <button type="submit" id="newFormBtn" class="btn btn-submitPost">Change</button>
                     </form>

@@ -30,7 +30,7 @@ public class ProfileController : Controller
     }
 
     [Authorize(Roles = "Admin")]
-    public IActionResult Index(string typeQuery = "rating", string oldTypeQuery = "")
+    public IActionResult Index(string typeQuery = "memberSince", string oldTypeQuery = "")
     {
         IEnumerable<ProfileModel> profiles;
         switch (typeQuery)
@@ -258,26 +258,83 @@ public class ProfileController : Controller
     
 
     [HttpPost]
+    //public async Task<IActionResult> EditProfile(ProfileModel model)
+    //{
+    //    var userId = _userManager.GetUserId(User);
+    //    var imageUri = "";
+    //    if (model.ImageUpload != null)
+    //        //Azure
+    //        //var blockBlob = UploadProfileImageForAzure(model.ImageUpload);
+    //        //imageUri = blockBlob.Uri.AbsoluteUri;
+    //        imageUri = UploadProfileImage(model.ImageUpload);
+
+    //    var forum = new ApplicationUser
+    //    {
+    //        Id = model.UserId,
+    //        UserDescription = model.UserDescription,
+    //        ProfileImageUrl = imageUri
+    //    };
+
+    //    await _userService.Edit(forum);
+    //    return RedirectToAction("Detail", "Profile", new {id = userId});
+    //}
     public async Task<IActionResult> EditProfile(ProfileModel model)
     {
-        var userId = _userManager.GetUserId(User);
-        var imageUri = "";
-        if (model.ImageUpload != null)
-            //Azure
-            //var blockBlob = UploadProfileImageForAzure(model.ImageUpload);
-            //imageUri = blockBlob.Uri.AbsoluteUri;
-            imageUri = UploadProfileImage(model.ImageUpload);
+        var userId = _userManager.GetUserId(User); 
 
-        var forum = new ApplicationUser
+        var user = await _userManager.FindByIdAsync(userId);
+
+        if (user == null)
         {
-            Id = model.UserId,
-            UserDescription = model.UserDescription,
-            ProfileImageUrl = imageUri
-        };
+            // Handle the case where the user is not found
+            return NotFound();
+        }
 
-        await _userService.Edit(forum);
-        return RedirectToAction("Detail", "Profile", new {id = userId});
+        // Update non-password properties
+        user.UserDescription = model.UserDescription;
+
+        if (model.ImageUpload != null)
+        {
+            // Update ProfileImageUrl only if there is an ImageUpload
+            var imageUri = UploadProfileImage(model.ImageUpload);
+            user.ProfileImageUrl = imageUri;
+        }
+
+
+        // Update the password if provided
+        if (!string.IsNullOrEmpty(model.NewPassword))
+        {
+            var hasher = new PasswordHasher<ApplicationUser>();
+            var passwordVerification = hasher.VerifyHashedPassword(user, user.PasswordHash, model.CurrentPassword);
+
+            if (passwordVerification != PasswordVerificationResult.Success)
+            {
+                TempData["AlertType"] = "danger";
+                TempData["AlertMessage"] = "Current password is incorrect.";
+                return RedirectToAction("Edit", "Profile", new { id = userId });
+            }
+
+            user.PasswordHash = hasher.HashPassword(user, model.NewPassword);
+        }
+
+        // Update the user
+        var identityResult = await _userManager.UpdateAsync(user);
+
+        if (!identityResult.Succeeded)
+        {
+            foreach (var error in identityResult.Errors)
+            {
+                TempData["AlertType"] = "danger";
+                TempData["AlertMessage"] = error.Description;
+                
+            }
+
+            return RedirectToAction("Edit", "Profile", new { id = userId });
+        }
+
+        return RedirectToAction("Detail", "Profile", new { id = userId });
     }
+
 
     private CloudBlockBlob UploadProfileImageForAzure(IFormFile file)
     {
