@@ -18,4 +18,7 @@ public interface IPost
     IEnumerable<Post> GetFilteredPosts(string searchQuery);
     IEnumerable<Post> GetLatestPosts(int numberPosts);
     Task UnArchive(int id);
+    Task SubscribeToPost(string userId, int postId);
+    Task UnsubscribeFromPost(string userId, int postId);
+    Task<bool> IsUserSubscribedToPost(string userId, int postId);
 }

@@ -7,6 +7,7 @@ using CloudXForum.DataAccess.Entities;
 using CloudXForum.DataAccess.Services;
 using CloudXForum.UI.Models.ApplicationUser;
 using CloudXForum.Services;
+using System.Linq;
 
 namespace CloudXForum.UI.Controllers;
 
@@ -30,7 +31,7 @@ public class ProfileController : Controller
     }
 
     [Authorize(Roles = "Admin")]
-    public IActionResult Index(string typeQuery = "memberSince", string oldTypeQuery = "")
+    public async Task<IActionResult> IndexAsync(string typeQuery = "memberSince", string oldTypeQuery = "")
     {
         IEnumerable<ProfileModel> profiles;
         switch (typeQuery)
@@ -44,11 +45,12 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        UserLevel = _userService.GetLevelFromRating(u.Rating),
                         MemberSince = u.MemberSince,
                         IsAdmin = u.IsAdmin,
-                        IsActive = u.IsActive                       
+                        IsActive = u.IsActive
                     });
+
                 oldTypeQuery = "0";
                 break;
             case "memberSince":
@@ -60,11 +62,12 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        UserLevel = _userService.GetLevelFromRating(u.Rating),
                         MemberSince = u.MemberSince,
                         IsAdmin = u.IsAdmin,
                         IsActive = u.IsActive
                     });
+
                 oldTypeQuery = typeQuery;
                 break;
             case "userName" when oldTypeQuery == typeQuery:
@@ -76,14 +79,17 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        UserLevel = _userService.GetLevelFromRating(u.Rating),
                         MemberSince = u.MemberSince,
                         IsAdmin = u.IsAdmin,
                         IsActive = u.IsActive
                     });
+
                 oldTypeQuery = "0";
                 break;
             case "userName":
+
+
                 profiles = _userService.GetAll().OrderBy(user => user.NormalizedUserName).Select(u =>
                     new ProfileModel
                     {
@@ -92,7 +98,7 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        UserLevel = _userService.GetLevelFromRating(u.Rating),
                         MemberSince = u.MemberSince,
                         IsAdmin = u.IsAdmin,
                         IsActive = u.IsActive
@@ -108,7 +114,7 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        UserLevel = _userService.GetLevelFromRating(u.Rating),
                         MemberSince = u.MemberSince,
                         IsAdmin = u.IsAdmin,
                         IsActive = u.IsActive
@@ -124,7 +130,7 @@ public class ProfileController : Controller
                         Username = u.UserName,
                         ProfileImageUrl = u.ProfileImageUrl,
                         UserRating = u.Rating.ToString(),
-                        UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                        UserLevel = _userService.GetLevelFromRating(u.Rating),
                         MemberSince = u.MemberSince,
                         IsAdmin = u.IsAdmin,
                         IsActive = u.IsActive
@@ -143,7 +149,7 @@ public class ProfileController : Controller
                             Username = u.UserName,
                             ProfileImageUrl = u.ProfileImageUrl,
                             UserRating = u.Rating.ToString(),
-                            UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                            UserLevel = _userService.GetLevelFromRating(u.Rating),
                             MemberSince = u.MemberSince,
                             IsAdmin = u.IsAdmin,
                             IsActive = u.IsActive
@@ -160,7 +166,7 @@ public class ProfileController : Controller
                             Username = u.UserName,
                             ProfileImageUrl = u.ProfileImageUrl,
                             UserRating = u.Rating.ToString(),
-                            UserLevel = ApplicationUserService.GetLevelFromRating(u.Rating),
+                            UserLevel = _userService.GetLevelFromRating(u.Rating),
                             MemberSince = u.MemberSince,
                             IsAdmin = u.IsAdmin,
                             IsActive = u.IsActive
@@ -191,7 +197,7 @@ public class ProfileController : Controller
             UserId = user.Id,
             Username = user.UserName,
             UserRating = user.Rating.ToString(),
-            UserLevel = ApplicationUserService.GetLevelFromRating(user.Rating),
+            UserLevel = _userService.GetLevelFromRating(user.Rating),
             Email = user.Email,
             ProfileImageUrl = user.ProfileImageUrl,
             MemberSince = user.MemberSince,
@@ -280,8 +286,8 @@ public class ProfileController : Controller
     //}
     public async Task<IActionResult> EditProfile(ProfileModel model)
     {
-        var userId = _userManager.GetUserId(User); 
-
+        //var userId = _userManager.GetUserId(User);
+        var userId = model.UserId;
         var user = await _userManager.FindByIdAsync(userId);
 
         if (user == null)

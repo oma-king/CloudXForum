@@ -39,6 +39,7 @@ public class PostController : Controller
             AuthorName = post.User.UserName,
             AuthorImageUrl = post.User.ProfileImageUrl,
             AuthorRating = post.User.Rating,
+            AuthorLevel = _userService.GetLevelFromRating(post.User.Rating),
             Created = post.Created,
             PostContent = post.Content,
             Replies = replies,
@@ -145,8 +146,10 @@ public class PostController : Controller
         };
     }
 
-    private static IEnumerable<PostReplyModel> BuildPostReplies(IEnumerable<PostReply> replies)
+    //private static IEnumerable<PostReplyModel> BuildPostReplies(IEnumerable<PostReply> replies)
+    private IEnumerable<PostReplyModel> BuildPostReplies(IEnumerable<PostReply> replies)
     {
+    
         return replies.Select(reply => new PostReplyModel
         {
             Id = reply.Id,
@@ -154,9 +157,12 @@ public class PostController : Controller
             AuthorName = reply.User.UserName,
             AuthorImageUrl = reply.User.ProfileImageUrl,
             AuthorRating = reply.User.Rating,
+            AuthorLevel = _userService.GetLevelFromRating(reply.User.Rating),
             Created = reply.Created,
             ReplyContent = reply.Content,
             IsAuthorAdmin = IsAuthorAdmin(reply.User)
         }).OrderByDescending(replyModel => replyModel.Created);
     }
+   
+    
 }

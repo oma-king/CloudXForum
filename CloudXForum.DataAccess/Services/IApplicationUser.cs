@@ -12,4 +12,5 @@ public interface IApplicationUser
     Task LockUser(ApplicationUser user);
     Task UnlockUser(ApplicationUser user);
     Task UpdateUserRating(string id, Type type);
+    string GetLevelFromRating(int userRating);
 }

@@ -10,6 +10,7 @@ public class PostIndexModel
     public string AuthorName { get; set; }
     public string AuthorImageUrl { get; set; }
     public int AuthorRating { get; set; }
+    public string AuthorLevel { get; set; }
     public DateTime Created { get; set; }
     public string PostContent { get; set; }
     public bool IsAuthorAdmin { get; set; }

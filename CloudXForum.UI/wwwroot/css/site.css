@@ -514,6 +514,7 @@
     display: table;
     background-color: #fff;
     border-bottom: 1px solid #aaa;
+    width: 70%;
 }
 
 #postReplyRow {

@@ -35,6 +35,29 @@
             </p>
         </div>
     </div>
+    
+    @if (TempData.ContainsKey("AlertMessage") && TempData.ContainsKey("AlertType"))
+    {
+        <br />
+        <div id="myAlert" class="alert alert-@TempData["AlertType"] alert-dismissible fade show text-center" role="alert">
+            @TempData["AlertMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+
+        <script>
+            // Wait for the page to load
+            document.addEventListener('DOMContentLoaded', function () {
+                // Close the alert after 5 seconds
+                setTimeout(function () {
+                    var myAlert = document.getElementById('myAlert');
+                    if (myAlert) {
+                        myAlert.classList.add('fade'); // Add the 'fade' class for a smooth transition
+                        myAlert.style.display = 'none'; // Hide the alert
+                    }
+                }, 5000);
+            });
+        </script>
+    }
     <div class="row" id="forumIndexContent">
         @if (Model.Posts.Any())
         {
@@ -58,10 +81,11 @@
                                     <div>
                                         <span class="postAuthor">
                                             <a asp-controller="Profile" asp-action="Detail" asp-route-id="@post.AuthorId">
-                                                @post.Author
+                                                @post.Author 
                                             </a>
                                         </span>
-                                            (@post.AuthorRating) V
+                                            @* (@post.AuthorRating) *@
+                                            (@post.AuthorLevel) ~  
                                         <span class="postDate">
                                             @post.DatePosted
                                         </span>
@@ -77,9 +101,33 @@
                         <td class="tdDisplayNone">
                             <div class="postDate">@post.DatePosted</div>
                         </td>
+                            @if (User.Identity.IsAuthenticated && !post.IsPostArchived)
+                            {
                         <td class="tdDisplayNone">
-                                @if (User.IsInRole("Admin"))
-                                {
+                                <div class="row" id="postSubscriptionRow">
+                                    @if (!post.IsUserSubscribed)
+                                    {
+                                            <a asp-controller="Forum" asp-action="Subscribe" asp-route-id="@post.Id">
+                                                <span class="material-icons" style="font-size:32px;color:#6bc172">
+                                                    notifications
+                                                </span>
+                                            </a>
+                                    }
+                                    else
+                                    {
+                                            <a asp-controller="Forum" asp-action="Unsubscribe" asp-route-id="@post.Id">
+                                                <span class="material-icons" style="font-size:32px;color:#e42313">
+                                                    notifications_off
+                                                </span>
+                                            </a>
+                                    }
+                                </div>
+                        </td>
+                            }
+                            @if (User.IsInRole("Admin"))
+                            {
+                        <td class="tdDisplayNone">
+                               
                                     <div class="btn-delete">
                                         <a asp-controller="Forum" asp-action="Delete" asp-route-id="@post.Id">
                                             <span class="material-icons deleteButtonRed">
@@ -87,8 +135,8 @@
                                             </span>
                                         </a>
                                     </div>
-                                }
                         </td>
+                            }
                     </tr>
                 }
                 </tbody>

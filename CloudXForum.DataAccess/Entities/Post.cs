@@ -10,4 +10,5 @@ public class Post
     public ApplicationUser User { get; set; }
     public List<PostReply> Replies { get; set; }
     public Forum Forum { get; set; }
+    public ICollection<PostSubscription> Subscribers { get; set; }
 }

@@ -4,6 +4,7 @@ using CloudXForum.Services;
 using CloudXForum.DataAccess;
 using CloudXForum.DataAccess.Entities;
 using CloudXForum.DataAccess.Services;
+using Microsoft.AspNetCore.Builder;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -50,3 +51,4 @@ app.MapControllerRoute(
 app.MapRazorPages();
 
 app.Run();
+

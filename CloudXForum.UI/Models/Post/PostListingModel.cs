@@ -13,4 +13,7 @@ public class PostListingModel
     public ForumListingModel Forum { get; set; }
     public int RepliesCount { get; set; }
     public bool IsPostArchived { get; set; }
+    public bool IsUserSubscribed { get; set; }
+    public string AuthorLevel { get; set; }
+
 }

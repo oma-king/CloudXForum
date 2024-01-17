@@ -7,6 +7,9 @@ using CloudXForum.DataAccess.Entities;
 using CloudXForum.DataAccess.Services;
 using CloudXForum.UI.Models.Forum;
 using CloudXForum.UI.Models.Post;
+using Microsoft.AspNetCore.Identity;
+using CloudXForum.Services;
+using Microsoft.Extensions.Hosting;
 
 namespace CloudXForum.UI.Controllers;
 
@@ -17,15 +20,19 @@ public class ForumController : Controller
     private readonly IPost _postService;
     private readonly IUpload _uploadService;
     private readonly IWebHostEnvironment _webHostEnvironment;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly IApplicationUser _userservice;
 
     public ForumController(IForum forumService, IPost postService, IUpload uploadService,
-        IConfiguration configuration, IWebHostEnvironment webHostEnvironment)
+        IConfiguration configuration, IWebHostEnvironment webHostEnvironment, UserManager<ApplicationUser> userManager, IApplicationUser userservice)
     {
         _forumService = forumService;
         _postService = postService;
         _uploadService = uploadService;
         _configuration = configuration;
         _webHostEnvironment = webHostEnvironment;
+        _userManager = userManager;
+        _userservice = userservice;
     }
 
     public IActionResult Index()
@@ -125,6 +132,7 @@ public class ForumController : Controller
         if (forum == null) return RedirectToAction("Error", "Home");
         var posts = _postService.GetFilteredPosts(forum, searchQuery).ToList();
         var emptySearchResults = posts.Count == 0 && string.IsNullOrEmpty(searchQuery);
+        var userId = _userManager.GetUserId(User);
         var postListings = posts.Select(post => new PostListingModel
         {
             Id = post.Id,
@@ -135,7 +143,9 @@ public class ForumController : Controller
             DatePosted = post.Created.ToString(CultureInfo.InvariantCulture),
             RepliesCount = post.Replies.Count,
             Forum = BuildForumListing(post),
-            IsPostArchived = post.IsArchived
+            IsPostArchived = post.IsArchived,
+            AuthorLevel = _userservice.GetLevelFromRating(post.User.Rating),
+            IsUserSubscribed = _postService.IsUserSubscribedToPost(userId, post.Id).Result, // Using .Result to wait for the async method
         }).OrderByDescending(post => DateTime.ParseExact(post.DatePosted, "MM/dd/yyyy HH:mm:ss", CultureInfo.InvariantCulture));
 
         var model = new ForumTopicModel
@@ -160,6 +170,31 @@ public class ForumController : Controller
     {
         var topic = await _postService.GetById(id);
         await _postService.Delete(id);
+        return RedirectToAction("Topic", new { id = topic.Forum.Id });
+    }
+
+    [Authorize]
+    public async Task<IActionResult> Subscribe(int id)
+    {
+        var userId = _userManager.GetUserId(User);
+        var topic = await _postService.GetById(id);
+        await _postService.SubscribeToPost(userId, id);
+
+        TempData["AlertType"] = "success";
+        TempData["AlertMessage"] = "You have subscribed to this post.";
+
+        return RedirectToAction("Topic", new { id = topic.Forum.Id });
+    }
+    [Authorize]
+    public async Task<IActionResult> Unsubscribe(int id)
+    {
+        var userId = _userManager.GetUserId(User);
+        var topic = await _postService.GetById(id);
+        await _postService.UnsubscribeFromPost(userId, id);
+
+        TempData["AlertType"] = "success";
+        TempData["AlertMessage"] = "You have unsubscribed from this post.";
+
         return RedirectToAction("Topic", new { id = topic.Forum.Id });
     }
 

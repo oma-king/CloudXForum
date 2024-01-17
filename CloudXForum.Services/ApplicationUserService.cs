@@ -81,7 +81,7 @@ public class ApplicationUserService : IApplicationUser
         return userRating + inc;
     }
 
-    public static string GetLevelFromRating(int userRating)
+    public string GetLevelFromRating(int userRating)
     {
         if (userRating < 50)
         {

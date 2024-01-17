@@ -120,4 +120,33 @@ public class PostService : IPost
         _context.Update(post);
         await _unitOfWork.Commit();
     }
+    public async Task SubscribeToPost(string userId, int postId)
+    {
+        var subscription = new PostSubscription
+        {
+            UserId = userId,
+            PostId = postId
+        };
+
+        _context.PostSubscriptions.Add(subscription);
+        await _context.SaveChangesAsync();
+    }
+
+    public async Task UnsubscribeFromPost(string userId, int postId)
+    {
+        var subscription = await _context.PostSubscriptions
+            .FirstOrDefaultAsync(s => s.UserId == userId && s.PostId == postId);
+
+        if (subscription != null)
+        {
+            _context.PostSubscriptions.Remove(subscription);
+            await _context.SaveChangesAsync();
+        }
+    }
+
+    public async Task<bool> IsUserSubscribedToPost(string userId, int postId)
+    {
+        return await _context.PostSubscriptions
+            .AnyAsync(s => s.UserId == userId && s.PostId == postId);
+    }
 }

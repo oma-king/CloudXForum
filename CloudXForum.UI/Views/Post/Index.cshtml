@@ -25,7 +25,7 @@
 
             <a asp-controller="Profile" asp-action="Detail" asp-route-id="@Model.AuthorId">
                 <strong>@Model.AuthorName</strong>
-            </a> (<span class="postAuthorRating">@Model.AuthorRating</span>) <br/>
+            </a> (<span class="postAuthorRating">@* @Model.AuthorRating *@@Model.AuthorLevel</span>) <br/>
             @if (Model.IsAuthorAdmin)
             {
                 <span class="isAdmin smaller">Moderator</span>
@@ -107,7 +107,7 @@
                     }></div>
                     <a asp-controller="Profile" asp-action="Detail" asp-route-id="@reply.AuthorId">
                         <strong>@reply.AuthorName</strong>
-                    </a> (<span class="postAuthorRating">@reply.AuthorRating</span>) <br/>
+                    </a> (<span class="postAuthorRating">@* @reply.AuthorRating *@@reply.AuthorLevel</span>) <br/>
                     @if (reply.IsAuthorAdmin)
                     {
                         <div class="isAdmin profileLabel smaller">Moderator</div>
