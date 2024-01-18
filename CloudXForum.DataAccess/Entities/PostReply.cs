@@ -7,4 +7,5 @@ public class PostReply
     public DateTime Created { get; set; }
     public ApplicationUser User { get; set; }
     public Post Post { get; set; }
+    public ICollection<RepliesFollowup> RepliesFollowups { get; set; }
 }

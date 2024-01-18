@@ -807,3 +807,24 @@ button.accept-policy {
     font-size: 1rem;
     line-height: inherit;
 }
+#notificationContainer {
+    position: static;
+    display: inline-block;
+}
+
+#notificationCount {
+    position: absolute;
+    top: 0.2em;
+    right: 6px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+    padding: 3px 6px;
+    font-size: 9px;
+    font-weight: bold;
+}   
+.dropdown-menu-right {
+    
+    text-align: center;
+    width: auto;
+  }

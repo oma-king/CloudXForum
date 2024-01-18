@@ -7,6 +7,7 @@ using CloudXForum.UI.Models;
 using CloudXForum.UI.Models.Forum;
 using CloudXForum.UI.Models.Home;
 using CloudXForum.UI.Models.Post;
+using Microsoft.AspNetCore.Identity;
 
 namespace CloudXForum.UI.Controllers;
 
@@ -14,11 +15,14 @@ public class HomeController : Controller
 {
     private readonly IForum _forumService;
     private readonly IPost _postService;
+    private static UserManager<ApplicationUser> _userManager;
 
-    public HomeController(IForum forumService, IPost postService)
+    public HomeController(IForum forumService, IPost postService,
+        UserManager<ApplicationUser> userManager)
     {
         _forumService = forumService;
         _postService = postService;
+        _userManager = userManager;
     }
 
     public IActionResult Index()
@@ -66,12 +70,52 @@ public class HomeController : Controller
                 HasRecentPosts = await _forumService.HasRecentPost(forum.Id)
             }).Select(t => t.Result);
 
+
+        var userId = _userManager.GetUserId(User);
+
+        var unreadMessages = _postService.GetUnreadMessages(userId);
+
+        var notificationDtoList = unreadMessages.Select(notification => new NotificationDto
+        {
+            Content = notification.PostReply.Content,
+            Title = notification.PostReply.Post.Title,
+            UserName = notification.PostReply?.User?.UserName ?? "Unknown User",
+            Id = notification.Id,
+            PostId = notification.PostReply.Post.Id
+        }).ToList();
+
+       
+
+
+
+
+
+
         return new HomeIndexModel
         {
             LatestPosts = posts,
             PopularForums = forums,
+            Notifications = notificationDtoList,
             SearchQuery = ""
         };
+    }
+
+    public IActionResult UnreadMessages()
+    {
+        var userId = _userManager.GetUserId(User);
+        var unreadMessages = _postService.GetUnreadMessages(userId);
+
+        var notificationDtoList = unreadMessages.Select(notification => new NotificationDto
+        {
+            Content = notification.PostReply.Content,
+            Title = notification.PostReply.Post.Title,
+            UserName = notification.PostReply?.User?.UserName ?? "Unknown User",
+            Id = notification.Id,
+            PostId = notification.PostReply.Post.Id
+        }).ToList();
+
+        // Return the updated notifications to the view
+        return View(new HomeIndexModel { Notifications = notificationDtoList });
     }
 
     private static ForumListingModel GetForumListingForPost(Post post)
@@ -84,4 +128,37 @@ public class HomeController : Controller
             Id = forum.Id
         };
     }
+
+
+    
+
+    [HttpGet]
+    public IActionResult GetUpdatedNotifications()
+    {
+        var userId = _userManager.GetUserId(User);
+        var updatedNotifications = _postService.GetUnreadMessages(userId);
+
+        var notificationDtoList = updatedNotifications.Select(notification => new NotificationDto
+        {
+            Content = notification.PostReply.Content,
+            Title = notification.PostReply.Post.Title,
+            UserName = notification.PostReply?.User?.UserName ?? "Unknown User",
+            Id = notification.Id,
+            PostId = notification.PostReply.Post.Id
+        }).ToList();
+
+        return Json(notificationDtoList);
+    }
+
+
+    [HttpPost]
+    public async Task<IActionResult> MarkAsRead(int repliesfollowupid)
+    {
+        await _postService.MarkAsRead(repliesfollowupid);
+
+        // Redirect to the unread messages page or another appropriate page
+        //return RedirectToAction("UnreadMessages");
+        return Json(new { success = true });
+    }
+
 }

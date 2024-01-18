@@ -149,4 +149,31 @@ public class PostService : IPost
         return await _context.PostSubscriptions
             .AnyAsync(s => s.UserId == userId && s.PostId == postId);
     }
+    public IEnumerable<RepliesFollowup> GetUnreadMessages(string userId)
+    {
+        //return _context.RepliesFollowup
+        //    .Include(r => r.PostReply)
+        //        .ThenInclude(pr => pr.Post)
+        //    .Where(r => !r.IsRead && r.PostReply.User.Id == userId)
+        //    .ToList();
+        return _context.RepliesFollowup
+           .Include(r => r.PostReply)
+           .ThenInclude(r => r.User)
+           .Include(r => r.PostReply)
+           .ThenInclude(pr => pr.Post)
+           .Where(r => !r.IsRead && !r.IsArchived && r.User.Id == userId)
+           .ToList();
+    }
+    public async Task MarkAsRead(int repliesFollowupId)
+    {
+        var message = await _context.RepliesFollowup.FindAsync(repliesFollowupId);
+
+        if (message != null)
+        {
+            message.IsRead = true;
+            message.IsArchived = true;
+
+            await _context.SaveChangesAsync();
+        }
+    }
 }

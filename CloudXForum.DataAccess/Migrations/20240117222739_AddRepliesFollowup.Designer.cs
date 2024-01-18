@@ -4,6 +4,7 @@ using CloudXForum.DataAccess;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CloudXForum.DataAccess.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240117222739_AddRepliesFollowup")]
+    partial class AddRepliesFollowup
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -152,15 +154,9 @@ namespace CloudXForum.DataAccess.Migrations
                     b.Property<int>("PostReplyId")
                         .HasColumnType("int");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("PostReplyId");
-
-                    b.HasIndex("UserId");
 
                     b.ToTable("RepliesFollowup");
                 });
@@ -459,15 +455,7 @@ namespace CloudXForum.DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("CloudXForum.DataAccess.Entities.ApplicationUser", "User")
-                        .WithMany("RepliesFollowup")
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("PostReply");
-
-                    b.Navigation("User");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -540,8 +528,6 @@ namespace CloudXForum.DataAccess.Migrations
 
             modelBuilder.Entity("CloudXForum.DataAccess.Entities.ApplicationUser", b =>
                 {
-                    b.Navigation("RepliesFollowup");
-
                     b.Navigation("Subscriptions");
                 });
 #pragma warning restore 612, 618

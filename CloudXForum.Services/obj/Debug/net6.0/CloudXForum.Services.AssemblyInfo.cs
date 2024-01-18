@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("CloudXForum.Services")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+2f83cec2f0af2ff522190784f339f621663bfc39")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4d2fcea1835352b2cba15fdb7373dd3a021bf042")]
 [assembly: System.Reflection.AssemblyProductAttribute("CloudXForum.Services")]
 [assembly: System.Reflection.AssemblyTitleAttribute("CloudXForum.Services")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
