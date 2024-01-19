@@ -105,6 +105,10 @@
       "PackagePath": "staticwebassets\\images\\theme\\front-splash.jpg"
     },
     {
+      "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\js\\notifications.js",
+      "PackagePath": "staticwebassets\\js\\notifications.js"
+    },
+    {
       "Id": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

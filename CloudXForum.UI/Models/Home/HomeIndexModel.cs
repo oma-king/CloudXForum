@@ -9,5 +9,5 @@ public class HomeIndexModel
     public string SearchQuery { get; set; }
     public IEnumerable<PostListingModel> LatestPosts { get; set; }
     public IEnumerable<ForumListingModel> PopularForums { get; set; }
-    public List<NotificationDto> Notifications { get; set; }
+    public List<NotificationModel> Notifications { get; set; }
 }

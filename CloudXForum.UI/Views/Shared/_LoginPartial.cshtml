@@ -3,7 +3,6 @@
 @inject SignInManager<ApplicationUser> _signInManager
 @inject UserManager<ApplicationUser> _userManager
 
-
 <ul class="navbar-nav">
     @if (_signInManager.IsSignedIn(User))
     {
@@ -11,15 +10,15 @@
             <a class="nav-link text-dark" title="Manage">Welcome, @_userManager.GetUserName(User)</a>
         </li>
         <li class="nav-item">
-            <div class="dropdown">
+            <div class="dropdown" id="notificationManager">
                 <a class="nav-link dropdown-toggle text-dark" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
                     Notifications
                  <div id="notificationContainer">
                     <span id="notificationCount">0</span>
                  </div>
                 </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink" id="notificationList">
-                    <!-- Notification items will be dynamically added here -->
+                <div class="dropdown-menu dropdownLeft" aria-labelledby="dropdownMenuLink" id="notificationList">
+                    @* List Notifications Here *@
                 </div>
             </div>
         </li>

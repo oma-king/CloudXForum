@@ -23,4 +23,6 @@ public interface IPost
     Task<bool> IsUserSubscribedToPost(string userId, int postId);
     IEnumerable<RepliesFollowup> GetUnreadMessages(string userId);
     Task MarkAsRead(int repliesFollowupId);
+    Task<IEnumerable<PostSubscription>> GetPostSubscribers(int postId, string userIdToExclude);
+    Task AddRepliesFollowup(RepliesFollowup repliesFollowup);
 }

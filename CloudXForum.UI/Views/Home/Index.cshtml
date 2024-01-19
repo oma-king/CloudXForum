@@ -4,60 +4,7 @@
 @{
     ViewData["Title"] = "Home";
 }
-@* 
-<script>
-    let notificationCount = @Model.Notifications.Count();
-    let notificationListArray = @Html.Raw(JsonSerializer.Serialize(Model.Notifications));
-
-    // Function to update the notification count
-    function updateNotificationCount() {
-        document.getElementById('notificationCount').innerText = notificationCount.toString();
-    }
-
-    // Function to populate the notification list
-    function populateNotificationList() {
-        const notificationListContainer = document.getElementById('notificationList');
-
-        // Clear existing items
-        notificationListContainer.innerHTML = '';
-
-        // Add new items
-        notificationListArray.forEach(notification => {
-            const notificationItem = document.createElement('li');
-            notificationItem.innerHTML = `
-                    New Reply "<i>${notification.Content}</i>" on Post <strong>${notification.Title}</strong> by ${notification.UserName}
-                    <form asp-controller="Home" asp-action="MarkAsRead" asp-route-repliesFollowupId="${notification.Content}" method="post">
-                        <button type="submit">Mark as Read</button>
-                    </form>
-                `;
-
-            notificationListContainer.appendChild(notificationItem);
-        });
-    }
-
-    // Function to update notification data and refresh the UI
-    function updateNotifications() {
-        // Simulated asynchronous call to the server to get updated data
-        // Replace this with an actual AJAX call to your server
-        setTimeout(() => {
-            // Update simulated data (replace with actual data from server)
-            notificationCount = @Model.Notifications.Count();
-            notificationListArray = @Html.Raw(JsonSerializer.Serialize(Model.Notifications));
-
-            // Update UI
-            updateNotificationCount();
-            populateNotificationList();
-        }, 0);
-    }
-
-    // Call the updateNotifications function every 5 seconds
-    setInterval(updateNotifications, 5000);
-
-    // Initial call to set up the UI
-    updateNotifications();
-</script>
- *@
-<script>
+@* <script>
  
     let notificationListArray = @Html.Raw(Json.Serialize(Model.Notifications));
 
@@ -80,14 +27,7 @@ function populateNotificationList() {
         const notificationItem = document.createElement('li');
         notificationItem.classList.add('dropdown-item');
         notificationItem.href = '#'; // Add the actual link or action here
-        // notificationItem.innerHTML = `
-        //                 New Reply "<i>${notification.content}</i>" on Post <strong>${notification.title}</strong> by ${notification.userName}
-        //         <form asp-controller="Home" asp-action="MarkAsRead" asp-route-repliesFollowupId="${notification.id}" method="post">
-        //         <button type="submit">Mark as Read</button>
-        //     </form>
-        // `;
-
-            notificationItem.innerHTML = `
+        notificationItem.innerHTML = `
         New <a href="/Post/Index/${notification.postId}">Reply</a> "<i>${notification.content}</i>" <br />on Post <strong>${notification.title}</strong> by ${notification.userName}
         <form id="markAsReadForm_${notification.id}" asp-controller="Home" asp-action="MarkAsRead" asp-route-repliesfollowupid="${notification.id}" method="post">
             <button type="button" onclick="markAsRead(${notification.id})">Mark as Read</button>
@@ -141,7 +81,7 @@ function populateNotificationList() {
 
     // Initial call to set up the UI
     updateNotifications();
-</script>
+</script> *@
 
 <div class="container body-content">
     <div class="row frontPageSplash">

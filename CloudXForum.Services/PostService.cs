@@ -176,4 +176,18 @@ public class PostService : IPost
             await _context.SaveChangesAsync();
         }
     }
+    public async Task<IEnumerable<PostSubscription>> GetPostSubscribers(int postId, string userIdToExclude)
+    {
+        return await _context.PostSubscriptions
+            .Where(subscription => subscription.PostId == postId && subscription.UserId != userIdToExclude)
+            .ToListAsync();
+    }
+
+    public async Task AddRepliesFollowup(RepliesFollowup repliesFollowup)
+    {
+        // Add RepliesFollowup to the database
+        _context.RepliesFollowup.Add(repliesFollowup);
+        await _context.SaveChangesAsync();
+    }
+
 }

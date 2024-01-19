@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Sf6jMcGw96xoV1nzGJRZDDZUGV5NwB7Zbh4ys9Xf0WI=",
+  "Hash": "fg7V7bvywJSy5tV6ZBoU0j1AwPqjpZbnK6hOyrMv4R4=",
   "Source": "CloudXForum.UI",
   "BasePath": "_content/CloudXForum.UI",
   "Mode": "Default",
@@ -1668,6 +1668,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\theme\\front-splash.jpg"
+    },
+    {
+      "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\js\\notifications.js",
+      "SourceId": "CloudXForum.UI",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\",
+      "BasePath": "_content/CloudXForum.UI",
+      "RelativePath": "js/notifications.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\notifications.js"
     },
     {
       "Identity": "D:\\_School\\OneDrive - POLYTECH INTL\\_IRM-2-2-S1\\C# .NET\\Projet\\CloudXForum\\CloudXForum.UI\\wwwroot\\js\\site.js",

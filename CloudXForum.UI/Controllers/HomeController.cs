@@ -75,7 +75,7 @@ public class HomeController : Controller
 
         var unreadMessages = _postService.GetUnreadMessages(userId);
 
-        var notificationDtoList = unreadMessages.Select(notification => new NotificationDto
+        var notificationDtoList = unreadMessages.Select(notification => new NotificationModel
         {
             Content = notification.PostReply.Content,
             Title = notification.PostReply.Post.Title,
@@ -105,7 +105,7 @@ public class HomeController : Controller
         var userId = _userManager.GetUserId(User);
         var unreadMessages = _postService.GetUnreadMessages(userId);
 
-        var notificationDtoList = unreadMessages.Select(notification => new NotificationDto
+        var notificationDtoList = unreadMessages.Select(notification => new NotificationModel
         {
             Content = notification.PostReply.Content,
             Title = notification.PostReply.Post.Title,
@@ -138,7 +138,7 @@ public class HomeController : Controller
         var userId = _userManager.GetUserId(User);
         var updatedNotifications = _postService.GetUnreadMessages(userId);
 
-        var notificationDtoList = updatedNotifications.Select(notification => new NotificationDto
+        var notificationDtoList = updatedNotifications.Select(notification => new NotificationModel
         {
             Content = notification.PostReply.Content,
             Title = notification.PostReply.Post.Title,

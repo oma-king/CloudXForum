@@ -1,6 +1,6 @@
 ﻿namespace CloudXForum.UI.Models.Home
 {
-    public class NotificationDto
+    public class NotificationModel
     {
         public string Content { get; set; }
         public string Title { get; set; }

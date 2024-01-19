@@ -55,8 +55,10 @@ public class ReplyController : Controller
         var reply = await BuildReply(model, user);
         await _postService.AddReply(reply);
         await _userService.UpdateUserRating(userId, typeof(PostReply));
+        await AddRepliesFollowup(model.PostId, reply.Id, userId);
         return RedirectToAction("Index", "Post", new {id = model.PostId});
     }
+
 
     [Authorize]
     public async Task<IActionResult> Edit(int id)
@@ -122,4 +124,21 @@ public class ReplyController : Controller
             User = user
         };
     }
+
+    private async Task  AddRepliesFollowup(int postId, int replyId, string userId)
+    {
+        
+        var subscribers = await _postService.GetPostSubscribers(postId, userId);
+
+        foreach (var subscriber in subscribers)
+        {
+            var repliesFollowup = new RepliesFollowup
+            {
+                PostReplyId = replyId,
+                UserId = subscriber.UserId,
+            };
+            await _postService.AddRepliesFollowup(repliesFollowup);
+        }
+    }
+
 }
